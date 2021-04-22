@@ -48,6 +48,19 @@ import {Image} from "react-native";
 
 
 
+##### 사이즈 조절 시 짤림 현상
+
+```javascript
+style={{
+       resizeMode : "contain"
+  }}
+//을 추가하고 width, height 조절
+```
+
+
+
+
+
 ### button (opacity)
 
 ```react
@@ -78,4 +91,46 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+
+
+### load local font
+
+- assets에 fonts 폴더 추가 및 font 파일 업로드
+
+  
+
+- exop-font 라이브러리 설치
+
+```bash
+npm install expo-font
+```
+
+
+
+- package.json에 폰트 사용 등록
+
+```javascript
+"rnpm": {
+    "assets": [
+        "./assets/fonts"
+    ]
+}
+```
+
+
+- local font를 사용할 컴포넌트에 폰트 추가
+
+  - 왼쪽에 변수명, 오른쪽에 require
+
+```javascript
+import * as Font from "expo-font";
+
+Font.loadAsync({
+  TmoneyRoundWindRegular: require("./assets/fonts/TmoneyRoundWindRegular.ttf"),
+  TmoneyRoundWindExtraBold: require("./assets/fonts/TmoneyRoundWindExtraBold.ttf"),
+});
+```
+
+- style에서 fontfamily 사용
 
